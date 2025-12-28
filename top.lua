@@ -1,3 +1,10 @@
+local oldHttpGet = game.HttpGet
+game.HttpGet = function(self, url, ...)
+    warn("HttpGet called:", url)
+    return oldHttpGet(self, url, ...)
+end
+
+
 return (function(...)
     local j, J, S, M, L, W, c, H, F, h, w, y, e, U = string.byte, string.sub, string.char, string.gsub, string.rep,
         setmetatable, pcall, type, tostring, assert, loadstring, unpack, string.pack, {}
